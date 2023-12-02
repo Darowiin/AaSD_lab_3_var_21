@@ -94,6 +94,30 @@ stats heap_sort(vector<int>& arr)
     return result;
 }
 
+vector<int> generate_random_vector(size_t n) {
+    vector<int> result;
+    for (int i = 0; i < n; ++i) {
+        result.push_back(rand() % 100);
+    }
+    return result;
+}
+
+vector<int> generate_sorted_vector(size_t n) {
+    vector<int> result;
+    for (int i = 0; i < n; ++i) {
+        result.push_back(i);
+    }
+    return result;
+}
+
+vector<int> generate_inverted_vector(size_t n) {
+    vector<int> result;
+    for (int i = n - 1; i >= 0; --i) {
+        result.push_back(i);
+    }
+    return result;
+}
+
 int main() {
 	vector<int> arr = { 1,3,5,7,3,2,19,40,32 };
     cout << "Array: ";
