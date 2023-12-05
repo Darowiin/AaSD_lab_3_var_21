@@ -13,17 +13,19 @@ struct stats {
 };
 
 stats insertion_sort(vector<int>& arr) {
-	stats result;
-	for (int i = 1; i < arr.size(); i++) {
-		for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--) {
+    stats result;
+    for (int i = 1; i < arr.size(); i++) {
+        for (int j = i; j > 0; --j) {
             ++result.comparison_count;
-
-			swap(arr[j - 1], arr[j]);
-
-            ++result.copy_count;
-		}
-	}
-	return result;
+            if (arr[j] < arr[j - 1]) {
+                swap(arr[j - 1], arr[j]);
+                ++result.copy_count;
+            }
+            else
+                break;
+        }
+    }
+    return result;
 }
 
 template <typename Iterator>
